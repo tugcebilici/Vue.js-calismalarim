@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div @mousemove="updateCoords()" class="box">{{coords.x}} , {{coords.y}}</div>
+        <p style="text-align: center;">  </p>
+
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    coords :{
+                        x : 0,
+                        y : 0
+                    }
+                };
+            },
+            methods: {
+                updateCoords() {
+                    this.coords = {
+                        x : event.x,
+                        y : event.y
+                    }
+                }
+            }
+
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
