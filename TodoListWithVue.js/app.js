@@ -10,13 +10,13 @@ const app = Vue.createApp({
       computed: {
         filteredTodos() {
           return this.hide
-            ? this.todos.filter((t) => !t.done)
+            ? this.todos.filter((t) => !t.complete)
             : this.todos
         }
       },
       methods: {
         addTodo() {
-          this.todos.push({ id: id++, text: this.newTodo, done: false })
+          this.todos.push({ id: id++, text: this.newTodo, complete: false })
           this.newTodo = ''
           
         },
